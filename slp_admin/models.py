@@ -133,7 +133,48 @@ class Banner(models.Model):
 
 
 class Product(models.Model):
-    pass
+    """Model for create product"""
+    merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
+    product_name = models.CharField(max_length=255)
+    product_description = models.TextField()
+    product_image = models.ImageField(upload_to='images/products/')
+
+
+class ProductActivationDetail(models.Model):
+    """Model for product activation detail"""
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    a_side_batch = models.CharField(max_length=255)
+    a_side_set_temp = models.IntegerField()
+    b_side_set_batch = models.IntegerField()
+    hot_set_temp = models.IntegerField()
+    mixing_chamber_size = models.IntegerField()
+    pressure_set = models.IntegerField()
+    starting_drum_temperature = models.IntegerField()
+
+
+class ProductGuidelines(models.Model):
+    """Model for product guidelines"""
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    technical_data_sheet = models.FileField(upload_to='files/products/%Y/%m/%d/')
+    application_guidelines = models.FileField(upload_to='files/products/%Y/%m/%d/')
+    video = models.FileField(upload_to='files/products/%Y/%m/%d/')
+    safety_data_sheet = models.FileField(upload_to='files/products/%Y/%m/%d/')
+    certificate = models.FileField(upload_to='files/products/%Y/%m/%d/')
+
+
+class ProductRewardPoint(models.Model):
+    """Model for product reward point"""
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    qr_code_scan = models.IntegerField()
+    a_side_batch = models.IntegerField()
+    a_side_set_temp = models.IntegerField()
+    b_side_set_temp = models.IntegerField()
+    hot_set_temp = models.IntegerField()
+    pressure_set = models.IntegerField()
+    mixing_chamber_size = models.IntegerField()
+    photos_of_install_foam = models.IntegerField()
+    starting_drum_temperature = models.IntegerField()
+    total_point = models.IntegerField()
 
 
 class Batch(models.Model):
