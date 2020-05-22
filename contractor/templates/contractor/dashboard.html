@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}
+| Dashboard
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div id="pcoded" class="pcoded">
+  <div class="pcoded-overlay-box"> </div>
+  <div class="pcoded-container navbar-wrapper">
+    {% include "contractor/header.html" %}
+    <div class="pcoded-main-container">
+      <div class="pcoded-wrapper">
+        {% include "contractor/navbar.html" %}
+        <div class="pcoded-content">
+          <div class="page-header card">
+            <div class="row align-items-end">
+              <div class="col-lg-8">
+                <div class="page-header-title">
+                  <div class="d-inline">
+                    <h5>Dashboard</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                 
+              </div>
+            </div>
+          </div>
+          <div class="page-header card text-center">
+            <div class="row align-items-end">
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-red">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        
+                        <h3 class="m-b-0 f-w-700 text-white">{{users}}</h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Users</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-blue">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">{{products}} </h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Total Products</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-yellow">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">{{jobCategories}} </h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Job Categories</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-green">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">{{tasks}} </h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Tasks</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "contractor/logout.html" %}
+
+{% endblock %}
+
+{% block extrajs %}
+
+{% endblock %}

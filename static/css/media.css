@@ -1,0 +1,62 @@
+@media screen and (max-width:1300px)
+{
+	
+}
+
+@media screen and (max-width:1200px)
+{
+	.prod-guidelines-list ul li{ width: 25%; }
+	.user-prof-one-part .image{ width:150px; height: 150px; }
+}
+
+@media screen and (max-width:1023px)
+{
+	
+}
+
+@media screen and (max-width:992px)
+{
+	.img_logo{ width: 56px; }
+	.login-block{ padding-top: 10px; }
+	.login-block .text-center img{ width: 100px; }
+	.page-header.card .align-items-end .page-header-title i{ margin-bottom: 0; }
+	.page-header.card .page-header-title h5{ padding: 6px 0 7px 0; }
+	
+}
+
+@media screen and (max-width:768px)
+{
+	.header-navbar .navbar-wrapper .navbar-logo{ display: flex; }
+	.pg-404-box h2{ font-size: 50px; }
+}
+
+@media screen and (max-width:767px)
+{
+	.leader-sort-part{ padding-bottom: 15px; }
+	.qr-code-history-part .image{ float: none; margin: 0 auto 15px auto; width: 120px; }
+	.user-prof-one-part .image{ margin:0 auto 20px auto; float: none; }
+	.dataTables_wrapper{  }
+	
+	div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child{ padding-left: 0; }
+	div.dataTables_wrapper div.dataTables_length label{ display: block; }
+	.dataTables_paginate .pagination{ padding-top: 10px; float: left; }
+	.dataTables_filter{ text-align: left !important; }
+	
+}
+
+@media screen and (max-width:575px)
+{
+	.v-product-top .form-group h4{ padding-top: 5px; }
+}
+
+@media screen and (max-width:479px)
+{
+	.prod-guidelines-list ul li{ width: 50%; }
+	.browse-btn{ width: 85px; position: relative; margin-top: 5px; }
+}
+
+
+
+
+
+

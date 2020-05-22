@@ -1,0 +1,81 @@
+/* .my-ac-img .edit-pro{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+} */
+.profile-img-cst {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.profile-img-cst .img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    border:1px solid;
+    color: #fff !important;
+}
+
+.profile-img-cst img {
+    width: 100%;
+    height: 100%;
+}
+
+.profile-img-cst .upload-icon {
+    width: 45px;
+    overflow: hidden;
+    height: 45px;
+    position: absolute;
+    text-align: center;
+    display: block;
+    top: 1px;
+    right: 10px;
+    left: auto;
+    cursor: pointer;
+}
+
+.profile-img-cst .upload-icon>span {    
+    border: 2px solid #63cfe3;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 42px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.profile-img-cst .upload-icon .icon{
+    font-size: 20px;
+    color: #63cfe3 !important;
+    pointer-events: none;
+}
+.profile-img-cst .file-uploader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.edit-pro input{
+    background: #e0e5e6 !important;
+    border: 1px solid #63cfe3 !important;
+    font-size: 14px !important;
+}
+.edit-pro{
+    text-align: left;
+    margin-top: 20px;
+}
+.edit-pro label{
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+.edit-pro .form-group{
+    margin-bottom: 10px !important;
+}

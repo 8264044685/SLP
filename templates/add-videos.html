@@ -1,0 +1,90 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+<div class="pcoded-content">
+          <div class="page-header card">
+            <div class="row align-items-end">
+              <div class="col-lg-8">
+                <div class="page-header-title">
+                  <div class="d-inline">
+                    <h5><a href="{% url 'videos' %}"><i class="icofont icofont-simple-left"></i></a> Add Videos</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+              </div>
+            </div>
+		  </div>
+
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+  <div class="page-header card">
+	   <div class="card">
+			<div class="card-block">
+				 <div class="row">
+						<div class="col-xl-6 col-lg-6 col-sm-12">
+							 <div class="form-group">
+								  <label>Select Category</label>
+								  <select class="form-control" name="category_id">
+										  <option disabled selected>Select Category</option>
+									  {% for category in categories %}
+										  <option value="{{category.id}}">{{category}}</option>
+									  {% endfor %}
+								  </select>
+							 </div>
+						</div>
+						<div class="col-xl-6 col-lg-6 col-sm-12">
+							 <div class="form-group">
+								  <label>Title</label>
+								  <input type="text" class="form-control" name="title">
+							 </div>
+						</div>
+				 </div>
+				 <div class="row">
+						<div class="col-xl-6 col-lg-6 col-sm-12">
+							 <div class="form-group">
+								  <label>Video</label>
+								  <input type="file" class="form-control" name="video">
+{#										  <div class="video-preview-box">#}
+{#										  	   <div class="v-img">#}
+{#										  	   	    <img src="{% static 'img/video-img.jpg' %}" alt="">#}
+{#										  	   </div>#}
+{#										  	   <div class="v-text">#}
+{#										  	   	    <h4>Video Title</h4>#}
+{#										  	   </div>  #}
+{#										  </div>#}
+							 </div>
+						</div>
+						<div class="col-xl-6 col-lg-6 col-sm-12">
+							 <div class="form-group">
+								  <label>Description</label>
+								  <textarea class="form-control" name="description"></textarea>
+							 </div>
+						</div>
+				 </div>
+				 <div class="clearfix text-right">
+					  <button class="btn btn-primary" type="submit">Submit</button>
+					  <button class="btn btn-default m-l-10">Cancel</button>
+				 </div>
+			</div>
+	   </div>
+  </div>
+</form>
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Do you want to Logout? </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

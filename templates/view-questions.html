@@ -1,0 +1,126 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h5><a href="{% url 'quiz' %}"><i class="icofont icofont-simple-left"></i></a> View Questions
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
+    </div>
+    <form action="." method="POST"> {% csrf_token %}
+        <div class="page-header card">
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Quiz Name: {{quiz.name}}</label>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-sm-12">
+                            <div class="form-group">
+                                <label>Video: {{quiz.video.title}}</label>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-sm-12">
+                            <div class="form-group">
+                                <label>Points: {{quiz.points}}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ques-list">
+                        {% for question in quiz.question %}
+                        <div class="ques_{{forloop.counter}}">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-sm-12">
+                                    <div class="form-group add-ques-boxs">
+                                        <div class="clearfix">
+                                            <label>Question:</label>
+                                        </div>
+                                        <input disabled type="text" class="form-control" value="{{question.question}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Option 1</label>
+                                        <input disabled type="text" class="form-control" value="{{question.option_1}}">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Option 2</label>
+                                        <input disabled type="text" class="form-control" value="{{question.option_2}}">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Option 3</label>
+                                        <input disabled type="text" class="form-control" value="{{question.option_3}}">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Option 4</label>
+                                        <input disabled type="text" class="form-control" value="{{question.option_4}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Correct Answer</label>
+                                        <input disabled type="text" class="form-control"
+                                               value="{{question.correct_answer}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="clearfix text-right">
+                    <input type="hidden" id="hid" name="count" value=0>
+                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+                <script>
+                    $(document).ready(function () {
+                        $(".icofont icofont-plus-circle").hide();
+
+                    });
+
+                </script>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header"></div>
+                <div class="modal-body text-center">
+                    <h4>Do you want to Logout? </h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light ">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

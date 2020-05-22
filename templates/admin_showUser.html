@@ -1,0 +1,84 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+        <div class="pcoded-content">
+          <div class="page-header card">
+            <div class="row align-items-end">
+              <div class="col-lg-8">
+                <div class="page-header-title">
+                  <div class="d-inline">
+                    <h5>Users</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                   
+              </div>
+            </div>
+          </div>
+
+          <div class="page-header card">
+              <div class="card">
+                <div class="card-block">
+                  <div class="dt-responsive table-responsive">
+                    <table id="multi-colum-dt13" class="table table-striped table-bordered nowrap">
+                      <thead>
+                        <tr>
+                          <th>Full Name</th>
+                          <th>Email Address</th>
+                          <th>Company Name</th>
+                          <th>Status (Blocked/Unblocked) </th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      {% for objects in user_info %}
+                      <tbody>
+                        <tr>
+                          <td>{{objects.first_name}} {{objects.last_name}}</td>
+                          <td>{{objects.email}}</td>
+                          <td>{{objects.company}}</td>
+                          <td>
+                          	  <span>{{objects.status}}</span>
+                          </td>
+                          <td>
+                             <a href="/slp_admin/view_user/{{objects.id}}/" class="tabledit-edit-button btn btn-primary waves-light waves-effect" id="{{objects.id}}"><i class="icofont icofont-eye-alt"></i></a>
+                             <!-- <button id="{{objects.id}}" class="tabledit-edit-button btn btn-primary waves-light waves-effect" onclick="actionFun(this.id)"><i class="icofont icofont-eye-alt"></i></button> -->
+                          </td>
+                        </tr>
+                      </tbody>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Do you want to Logout? </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+		$('#multi-colum-dt13').DataTable({
+
+		});
+</script>
+
+{% endblock %}

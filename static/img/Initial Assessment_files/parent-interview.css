@@ -1,0 +1,55 @@
+.question-modal .form-control {
+    padding: 6px 12px 6px 12px !important;
+}
+/*.question-modal textarea{
+    height: auto !important;
+}*/
+.title-radio{
+    clear: both;
+}
+.title-radio:after,
+ .title-radio:before{
+    content: "";
+    clear: both;
+    display: table;
+}
+.title-radio .btn{
+    float: right;
+    padding: 5px 8px;
+    font-size: 12px !important;
+}
+.answer-radio p{
+    margin-bottom: 0;
+}
+.close-radio{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    /* font-size: 10px; */
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    line-height: 26px;
+}
+.close-radio i{
+    position: relative;
+    left: auto;
+    top: auto;
+    font-size: 16px;
+    color: #76d5e6;
+}
+.textarea-close{
+    position: relative;
+}
+.textarea-close .close-radio{
+    position: absolute;
+    right: -9px;
+    top: -12px;
+    background: #f6f7f9;
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    border: 1px solid #d8d9da;
+    text-align: center;
+    line-height: 22px
+}

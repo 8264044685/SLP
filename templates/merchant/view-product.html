@@ -1,0 +1,310 @@
+{% extends 'merchant/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/merchant_menu.html' %}
+
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h5><a href="{% url 'products_merchant' %}"><i class="icofont icofont-simple-left"></i></a> View
+                            Products</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="page-header card">
+        <div class="card">
+            <div class="card-block">
+                <div class="v-product-top">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Merchant Name</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.merchant.name}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Product Name</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.product_name}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Product Description</label>
+                                <div class="col-sm-8">
+                                    <p class="m-b-0">{{product_detail.product_description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Product Image</label>
+                                {% if product.product_image %}
+                                    <img src="{{ product.product_image.url }}" alt="">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">A - Side Batch</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.a_side_batch}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">B - Side set temp</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.b_side_set_temperature}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">A - Side set temp</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.a_side_set_temperature}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Hot set temp</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.hot_set_temperature}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Mixing Chamber Size</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.mixing_chamber_size}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Pressure set</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.pressure_set}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header-title p-b-15">
+            <div class="d-inline">
+                <h5>Product Guidelines</h5>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-block">
+                <div class="prod-guidelines-list clearfix">
+                    <h2>Technical Datasheet</h2>
+                    <ul>
+                        {% for tech_file in product_detail.Technical_file %}
+
+                        <li>
+                            <div class="box">
+
+                                <div class="icon">
+                                    <a href="{{tech_file.technical_data_sheet.url}}"><i class="icofont icofont-file-pdf"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="prod-guidelines-list clearfix">
+                    <h2>Application Guideline</h2>
+                    <ul>
+                        {% for guide_file in product_detail.application_guidelines %}
+                        <li>
+                            <div class="box">
+
+                                <div class="icon">
+                                    <a href="{{guide_file.application_guidelines.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="prod-guidelines-list video-guidelines-list clearfix">
+                    <h2>Video ID</h2>
+                    <ul>
+                        {% for video_file in product_detail.video %}
+                        <li>
+                            <div class="box">
+
+                                <div class="icon">
+                                    <a href="{{video_file.video.url}}"><i class="icofont icofont-video"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="prod-guidelines-list clearfix">
+                    <h2>Safety Datasheet</h2>
+                    <ul>
+                        {% for safety_files in product_detail.safety_data_sheet %}
+                        <li>
+                            <div class="box">
+
+                                <div class="icon">
+                                    <a href="{{safety_files.safety_data_sheet.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="page-header-title p-b-15">
+            <div class="d-inline">
+                <h5>Product Rewards</h5>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-block">
+                <div class="v-product-top">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">QR Code Scan</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.qr_code_scan_reward}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">A - Side Batch</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.a_side_batch_reward}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">A side set temp</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.a_side_set_temp}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">B side set temp</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.b_side_set_temp}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Hot set temp</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.hot_set_temp}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Pressure set</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.pressure_set_reward}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Mixing Chamber Size</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.mixing_chamber_size_reward}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Photo of Installed foam</label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.photo_of_install_foam_reward}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>Total
+                                    Points</strong></label>
+                                <div class="col-sm-8">
+                                    <h4>{{product_detail.total_point}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body text-center">
+                <h4>Do you want to Logout? </h4>
+            </div>
+            <div class="modal-footer">
+                    <a href="javascript:void(0)" data-dismiss="modal"  class="btn btn-default waves-effect " data-dismiss="modal">No</a>
+                    <a  href="{% url 'logout' %}"  class="btn btn-primary waves-effect waves-light ">Yes</a>
+
+                </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+{% endblock %}
