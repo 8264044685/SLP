@@ -1,0 +1,508 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+<form action="{% url 'edit_product' id=product_detail.id %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="pcoded-content">
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <div class="d-inline">
+                            <h5><a href="{% url 'products' %}"><i class="icofont icofont-simple-left"></i></a> Edit
+                                Product</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+            </div>
+        </div>
+        <div class="page-header card">
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Merchant Name</label>&nbsp;<span style="color:red;">*</span>
+
+                                <select class="form-control" name="merchant_id">
+                                    <option selected="true" disabled="disabled">Choose Merchant</option>
+                                    {% for merchant in merchant_list %}
+                                    <option value="{{merchant.id}}" >{{merchant.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Product Name</label>&nbsp;<span style="color:red;">*</span>
+                                <input type="text" value="{{product_detail.product_name}}" class="form-control"
+                                       name="product_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group des1-fr">
+                                <label>Product Description</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <textarea class="form-control" value="{{product_detail.product_description}}" name="product_description">hello description</textarea>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <div class="prof-pic-part prof-pic-part-admin">
+                                    <div class="prof-pic-img">
+                                        {% if product_detail.product_image %}
+                                            <img src="{{product_detail.product_image.url}}" class="show_p_add_image" alt="">
+                                        {% else %}
+                                            <img src="{% static 'img/noimage.png' %}" class="show_p_add_image" id="" alt="">
+                                        {% endif %}
+                                    </div>
+                                    <div class="prof-pic-btn">
+                                        <input type="file" name="product_image" class="P_add_image">
+                                        <span><i class="icofont icofont-camera-alt"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="page-header-title p-b-15">
+                        <div class="d-inline">
+                            <h5>Product Activation Details</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Batch (e.g - abc)</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text"  pattern="^[A-Za-z -]+$" value="{{product_detail.a_side_batch}}"
+                                       class="form-control"
+                                       name="a_side_batch"
+                                       id="a_side_batch">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>B Side Set temp</label>&nbsp;<span style="color:red;">*</span>
+                                <select class="form-control" name="b_side_set_temp" id="b_side_set_temp"
+                                >
+                                    <option value="">Choose Temp</option>
+                                    {% for i in numbers %}
+                                        <option value="{{i}}" {% if product_detail.b_side_set_temp == i %}selected{% endif %}>{{i}}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Set temp</label>&nbsp;<span style="color:red;">*</span>
+                                <select class="form-control" name="a_side_set_temp" id="a_side_set_temp"
+                                >
+                                    <option value="">Choose Temp</option>
+
+                                    {% for i in numbers %}
+                                        <option value="{{i}}" {% if product_detail.a_side_set_temp == i %}selected{% endif %}>{{i}}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Hot Set temp</label>&nbsp;<span style="color:red;">*</span>
+                                <!-- <input type="number" class="integerField form-control temp" name="hot_set_temp" id="hot_set_temp" required=""> -->
+                                <select class="form-control" name="hot_set_temp" id="hot_set_temp"
+                                >
+                                    <option value="">Choose Temp</option>
+                                    {% for i in numbers %}
+                                        <option value="{{i}}" {% if product_detail.hot_set_temp == i %}selected{% endif %}>{{i}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Mixing Chamber Size</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <!-- <input type="number" class=" integerField form-control temp" name="mixing_chamber_size" id="mixing_chamber_size" required=""> -->
+                                <select class=" integerField form-control temp"
+                                        name="mixing_chamber_size"
+                                        id="mixing_chamber_size">
+                                    <option value="">Choose Temp</option>
+                                    {% for i in mixing_chamber_size %}
+                                        <option value="{{i}}" {% if product_detail.mixing_chamber_size == i %}selected{% endif %}>{{i}}</option>
+                                    {% endfor %}
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Pressure Set</label>&nbsp;<span style="color:red;">*</span>
+                                <select class="form-control" name="pressure_set" id="pressure_set"
+                                >
+                                    <option value="">Choose Temp</option>
+                                   {% for i in pressure_set %}
+                                        <option value="{{i}}" {% if product_detail.pressure_set == i %}selected{% endif %}>{{i}}</option>
+                                    {% endfor %}
+
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Starting Drum Temperature</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <select class="form-control" name="starting_drum_temperature"
+                                        id="starting_drum_temperature">
+                                    <option value="">Choose Temp</option>
+                                   {% for i in starting_drum_temperature %}
+                                        <option value="{{i}}" {% if product_detail.starting_drum_temperature == i %}selected{% endif %}>{{i}}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header-title p-b-15">
+                <div class="d-inline">
+                    <h5>Product Guidelines</h5>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-block">
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Technical Datasheet (Supported File Type: pdf)</h2>
+                            <br>
+<!--                                            <div class="custom-file">-->
+<!--                                                <input type="hidden"  id="technical_uploaded_file_count"-->
+<!--                                                       name="technical_uploaded_file_count">-->
+<!--                                                <input name="technical_datasheet_{{product_detail.Technical_file|length|add:1}}" id="technical_file_{{product_detail.Technical_file|length|add:1}}" type="file"-->
+<!--                                                       class="custom-file-input js_technical_file  technical_file_{{product_detail.Technical_file|length|add:1}}"-->
+<!--                                                       accept=".pdf" onchange="addTechnicalPdfFile(this,{{product_detail.Technical_file|length|add:1}})"/>-->
+<!--                                                <label class="custom-file-label">Upload file</label>-->
+<!--                                            </div>-->
+
+                            <div class="custom-file">
+                                <input type="hidden" value="0" id="technical_uploaded_file_count"
+                                       name="technical_uploaded_file_count">
+                                <input name="technical_datasheet_0" id="technical_file_0" type="file"
+                                       class="custom-file-input js_technical_file  technical_file_0"
+                                       accept=".pdf" onchange="addTechnicalPdfFile(this)"/>
+                                <label class="custom-file-label">Upload file</label>
+                            </div>
+                        </div>
+<!--                                        <ul id="js_uploaded_pdf">-->
+<!--                                            {% for tech_file in product_detail.Technical_file %}-->
+<!--                                            <li id="display_tech_file_{{forloop.counter0}}">-->
+<!--                                            <div class="box">-->
+<!--                                                <input name="technical_datasheet_{{forloop.counter0}}" value="{{product_detail.Technical_file.url}}"  hidden id="technical_file_{{forloop.counter0}}" type="file" class="custom-file-input js_technical_file  technical_file_{{forloop.counter0}}"  accept=".pdf"/>-->
+<!--                                                <a href="javascript:void(0)" class="remove1" onclick="removeTechnicalFile({{forloop.counter0}})"><i class="icofont icofont-close"></i></a>-->
+<!--                                                <div class="icon">-->
+<!--                                                    <a href="{{tech_file.technical_data_sheet.url}}"><i class="icofont icofont-file-pdf"></i></a>-->
+<!--                                                </div>-->
+<!--                                                <span style="display: inline-block;width: 75px;">{{tech_file.technical_data_sheet}}</span>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        {% endfor %}-->
+<!--                                        </ul>-->
+                        <ul id="js_uploaded_pdf">
+                             {% for tech_file in product_detail.Technical_file %}
+                            <li class="techFileSelectd_{{tech_file.tech_file_id}}">
+                                <input type="hidden" name="tech_file_remove_{{tech_file.tech_file_id}}" onclick="removeTEchFile(this,{{tech_file.tech_file_id}},{{product_detail.id}})"  id="tech_file_remove" value="{{tech_file.tech_file_id}}">
+                            <div class="box">
+                                <a href="javascript:void(0)" data-tech-url="{% url 'edit_product_tech_file' %}" onclick="removeTEchFile(this,{{tech_file.tech_file_id}},{{product_detail.id}});" class="remove1"><i class="icofont icofont-close"></i></a>
+                                <div class="icon">
+                                    <a href="{{tech_file.technical_data_sheet.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                </div>
+                                <span style="display: inline-block;width: 75px;">{{tech_file.technical_data_sheet}}</span>
+                            </div>
+                        </li>
+                            {% endfor %}
+                        </ul>
+
+
+                    </div>
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Application Guideline (Supported File Type: pdf)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="guidelines_uploaded_file_count"
+                                   id="guidelines_uploaded_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="application_guidelines_0"
+                                       id="guidelines_file_0"
+                                       class="custom-file-input js_guideline_file guidelines_file_0"
+                                       onchange="addGuidelinesPdfFile(this)" accept=".pdf">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="guide_file_pdf_show">
+                            {% for guide_file in product_detail.application_guidelines %}
+                                <li class="Guide_file_selected_{{guide_file.app_guide_file_id}}">
+                                    <input type="hidden" name="guide_file_remove_{{guide_file.app_guide_file_id}}" onclick="removeGuideFile(this,{{guide_file.app_guide_file_id}},{{product_detail.id}})"   value="{{guide_file.app_guide_file_id}}">
+                                    <div class="box">
+                                        <a href="javascript:void(0)" data-guide-url="{% url 'edit_product_guide_file' %}" onclick="removeGuideFile(this,{{guide_file.app_guide_file_id}},{{product_detail.id}})" class="remove1"><i class="icofont icofont-close"></i></a>
+                                        <div class="icon">
+                                            <a href="{{guide_file.application_guidelines.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                        </div>
+                                        <span style="display: inline-block;width: 75px;">{{guide_file.application_guidelines}}</span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                    <div class="prod-guidelines-list video-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Video (Supported File Type: mp4)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="video_uploaded_file_count"
+                                   id="video_uploaded_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="videofile_0" id="video_file_0"
+                                       class="custom-file-input js_video_file video_file_0"
+                                       onchange="addVideoFile(this)" accept="video/*">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="video_file_show">
+                            {% for video_file in product_detail.video %}
+                                <li class="Video_file_Selected_{{video_file.video_file_id}}">
+                                    <input type="hidden" name="video_file_remove_{{video_file.video_file_id}}" onclick="removeSelectVideoFile(this,{{video_file.video_file_id}},{{product_detail.id}})"   value="{{video_file.video_file_id}}">
+                                    <div class="box">
+                                        <a href="javascript:void(0)" data-video-url="{% url 'edit_product_video_file' %}" onclick="removeSelectVideoFile(this,{{video_file.video_file_id}},{{product_detail.id}})" class="remove1"><i class="icofont icofont-close"></i></a>
+                                        <div class="icon">
+                                            <a href="{{video_file.video.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                        </div>
+                                        <span style="display: inline-block;width: 75px;">{{video_file.video}}</span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Safety Datasheet (Supported File Type: pdf)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="safety_datasheet_uploaded_file_count"
+                                   id="safety_datasheet_uploaded_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="safety_datasheet_file_0"
+                                       id="safety_datasheet_file_0"
+                                       class="custom-file-input js_safety_datasheet_file safety_datasheet_file_0"
+                                       onchange="addSafetyDatasheetFile(this)" accept=".pdf">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="safetydatasheet_file_pdf_show">
+                            {% for safety_files in product_detail.safety_data_sheet %}
+                                <li class="safety_file_selected_{{safety_files.safety_file_id}}">
+                                    <input type="hidden" name="safety_file_remove_{{safety_files.safety_file_id}}" onclick="removeSafetyFile(this,{{safety_files.safety_file_id}},{{product_detail.id}})"   value="{{safety_files.safety_file_id}}">
+                                    <div class="box">
+                                        <a href="javascript:void(0)" data-safety-url="{% url 'edit_product_safety_file' %}" onclick="removeSafetyFile(this,{{safety_files.safety_file_id}},{{product_detail.id}})" class="remove1"><i class="icofont icofont-close"></i></a>
+                                        <div class="icon">
+                                            <a href="{{safety_files.safety_data_sheet.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                        </div>
+                                        <span style="display: inline-block;width: 75px;">{{safety_files.safety_data_sheet}}</span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Certificate (Supported File Type: pdf, png, jpg, jpeg)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="certificate_file_count"
+                                   id="certificate_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="certificate_file_0" id="certificate_file_0"
+                                       class="custom-file-input js_certificate_file certificate_file_0"
+                                       onchange="addcertificateFile(this)" accept=".pdf,image/*">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="certificate_file_show">
+                            {% for certificate in product_detail.certificate %}
+                                <li class="certificate_file_selected_{{certificate.certificate_id}}">
+                                    <input type="hidden" name="certificate_file_remove_{{certificate.certificate_id}}" onclick="removeCertificateFileSelected(this,{{certificate.certificate_id}},{{product_detail.id}})"   value="{{certificate.certificate_id}}">
+                                    <div class="box">
+                                        <a href="javascript:void(0)" data-certificate-url="{% url 'edit_product_certificate_file' %}" onclick="removeCertificateFileSelected(this,{{certificate.certificate_id}},{{product_detail.id}})" class="remove1"><i class="icofont icofont-close"></i></a>
+                                        <div class="icon">
+                                            <a href="{{certificate.certificate.url}}" ><i class="icofont icofont-file-pdf"></i></a>
+                                        </div>
+                                        <span style="display: inline-block;width: 75px;">{{certificate.certificate}}</span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header-title p-b-15">
+                <div class="d-inline">
+                    <h5>Product Rewards</h5>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-block v-product-top">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>QR Code Scan</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="{{product_detail.qr_code_scan_reward}}"  name="qr_code_scan_reward"
+                                       id="qr_code_scan_reward"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Batch</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input  type="text" value="{{product_detail.a_side_batch_reward}}" name="a_side_batch_reward"
+                                       id="a_side_batch_reward"
+                                       class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Set Temp</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" name="a_side_set_temp_reward"
+                                       id="a_side_set_temp_reward" value="{{product_detail.a_side_set_temp_reward}}" class="form-control point">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>B Side Set Temp</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" name="b_side_set_temp_reward"
+                                       id="b_side_set_temp_reward" value="{{product_detail.b_side_set_temp_reward}}" class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Hot Set Temp</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="{{product_detail.hot_set_temp_reward}}" name="hot_set_temp_reward"
+                                       id="hot_set_temp_reward"
+                                       class="form-control point">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Pressure Set</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="{{product_detail.pressure_set_reward}}" name="pressure_set_reward"
+                                       id="pressure_set_reward"
+                                       class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Mixing Chamber Size</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" name="mixing_chamber_size_reward"
+                                       id="mixing_chamber_size_reward" value="{{product_detail.mixing_chamber_size_reward}}" class="form-control point">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Photo of Installed foam</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="{{product_detail.photo_of_install_foam_reward}}" name="photo_of_install_foam_reward"
+                                       id="photo_of_install_foam_reward" class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Starting Drum Temperature Point</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input value="{{product_detail.starting_drum_temperature_point_reward}}" type="number"
+                                       name="starting_drum_temperature_point_reward"
+                                       id="starting_drum_temperature_point_reward"
+                                       class=" integerField form-control point"
+                                       id="starting_drum_temperature_point"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label"><strong>Total Points :
+                                </strong><strong id="total_points">{{product_detail.total_point}}</strong></label>
+                                <input type="hidden" value="{{product_detail.total_points}}" id="total_points1" name="total_points">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body text-center">
+                <h4>Do you want to Logout? </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light ">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

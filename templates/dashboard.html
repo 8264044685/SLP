@@ -1,0 +1,132 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+        <div class="pcoded-content">
+          <div class="page-header card">
+            <div class="row align-items-end">
+              <div class="col-lg-8">
+                <div class="page-header-title">
+                  <div class="d-inline">
+                    <h5>Dashboard</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                 
+              </div>
+            </div>
+          </div>
+          <div class="page-header card text-center">
+            <div class="row align-items-end">
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-green">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700 text-white">200</h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Users</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-blue">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">100 </h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Videos</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-red">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">170 </h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Total Products</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-yellow">
+                  <div class="card-body">
+                    <div class="row align-items-center ">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">200 </h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Banner</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-red">
+                  <div class="card-body">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h3 class="m-b-0 f-w-700  text-white">200</h3>
+                        <h6 class="m-t-5 m-b-0 text-white">Merchant</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Do you want to Logout? </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}">
+  </script> 
+<script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}">
+  </script>
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}">
+  </script> 
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}">
+  </script>
+<script src="{% static 'js/waves.min.js' %}" type="text/javascript">
+  </script> 
+<script type="text/javascript" src="{% static 'js/jquery.slimscroll.js' %}">
+  </script>
+<script type="text/javascript" src="{% static 'js/modernizr.js' %}">
+  </script>
+<script type="text/javascript" src="{% static 'js/css-scrollbars.js' %}">
+  </script> 
+<script type="text/javascript" src="{% static 'js/common-pages.js' %}">
+  </script> 
+<script src="{% static 'js/pcoded.js' %}" type="text/javascript">
+  </script> 
+<script type="text/javascript" src="{% static 'js/script.min.js' %}">
+  </script>
+<script src="{% static 'js/vertical/vertical-layout.min.js' %}" type="text/javascript">
+  </script>
+<script src="{% static 'js/rocket-loader.min.js' %}" data-cf-settings="" defer="">
+  </script>
+</body>
+</html>

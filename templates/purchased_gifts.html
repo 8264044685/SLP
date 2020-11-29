@@ -1,0 +1,75 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+
+  <div class="pcoded-content">
+    <div class="page-header card">
+      <div class="row align-items-end">
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <div class="d-inline">
+              <h5>GiftBit Log</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-header card">
+        <div class="card">
+          <div class="card-block">
+            <div class="dt-responsive table-responsive">
+              <table id="multi-colum-dt12" class="table table-striped table-bordered nowrap" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Brand</th>
+                    <th>Coupon Amount</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                {% for gifts in gift_log %}
+                  <tr>
+                    <td>{{gifts.user}}</td>
+                    <td>{{gifts.brand_code}}</td>
+                    <td>{{gifts.coupon_amount}}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Do you want to Logout? </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- data table -->
+<script type="text/javascript">
+		$('#multi-colum-dt12').DataTable({
+			// "columns": [
+			// 	{ "orderable": true },
+			// 	{ "orderable": true },
+			// 	{ "orderable": true },
+			// 	{ "orderable": false },
+			// ]
+		});
+</script>
+{% endblock %}

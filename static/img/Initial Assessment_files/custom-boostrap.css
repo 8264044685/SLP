@@ -1,0 +1,9 @@
+@import url("bootstrap-datepicker.min.css");
+
+ul li#step-0 a{pointer-events: none;}
+ul li#step-1 a{pointer-events: none;}
+ul li#step-2 a{pointer-events: none;}
+
+.datepicker table tr td span.active, .datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active:hover{
+      background-image: linear-gradient(to bottom,#63cfe3,#50b4df);
+}

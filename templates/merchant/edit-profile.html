@@ -1,0 +1,130 @@
+{% extends 'merchant/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/merchant_menu.html' %}
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h5><a href="{% url 'dashboard' %}"><i class="icofont icofont-simple-left"></i></a>
+                            Edit Profile</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    </div>
+
+    <form action="{% url 'edit_profile' %}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="page-header card">
+            <div class="card">
+                <div class="card-block">
+                    <div class="prof-pic-part">
+                        <div class="prof-pic-img">
+                            {% if merchant_detail.profile_pic%}
+                                <img src="{{merchant_detail.profile_pic.url}}" class="show_p_add_image" alt="">
+                            {% else %}
+                                <img src="{% static 'img/noimage.png' %}" class="show_p_add_image" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="prof-pic-btn">
+                            <input name="merchant_profile_pic" class="P_add_image" type="file">
+                            <span><i class="icofont icofont-camera-alt"></i></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" value="{{merchant_detail.name}}" name="merchant_name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Company Name</label>
+                                <input type="text" value="{{merchant_detail.company}}" name="company_name" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Address Line1</label>
+                                <textarea   name="add_line1"  class="form-control">{{merchant_detail.address.add_line1}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Address Line 2</label>
+                                <textarea  name="add_line2" class="form-control">{{merchant_detail.address.add_line1}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Zip Code</label>
+                                <input type="text" value="{{merchant_detail.address.zip_code}}" name="zipcode" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <input class="form-control"  value="{{merchant_detail.address.country}}" name="country">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>State</label>
+                                <input class="form-control"value="{{merchant_detail.address.state}}"  name="state">
+
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" value="{{merchant_detail.address.city}}" name="city">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix gen-btn">
+                        <input type="submit" class="btn btn-primary" value="Update">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body text-center">
+                <h4>Do you want to Logout? </h4>
+            </div>
+            <form>
+                <div class="modal-footer">
+                    <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-default waves-effect "
+                       data-dismiss="modal">No</a>
+                    <a href="{% url 'logout' %}" class="btn btn-primary waves-effect waves-light ">Yes</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+{% endblock %}

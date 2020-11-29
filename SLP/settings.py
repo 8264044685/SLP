@@ -84,7 +84,8 @@ WSGI_APPLICATION = 'SLP.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'SLP',
+        # 'NAME': 'SLP',
+        'NAME': 'SLP_new',
     }
 }
 
@@ -125,12 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
-
+STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -138,3 +137,12 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'pareeta@solulab.co'
+# EMAIL_HOST_PASSWORD = 'solulab@123'
+EMAIL_HOST_USER = 'parasdabhi2021@gmail.com'
+EMAIL_HOST_PASSWORD = 'Paras@175690693009'
+DEFAULT_FROM_EMAIL = 'Coding with pass team'

@@ -1,0 +1,92 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+        <div class="pcoded-content">
+          <div class="page-header card">
+            <div class="row align-items-end">
+              <div class="col-lg-8">
+                <div class="page-header-title">
+                  <div class="d-inline">
+                    <h5><a href="batch.html"><i class="icofont icofont-simple-left"></i></a> Dispute Request</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                   
+              </div>
+            </div>
+          </div>
+          <div class="page-header card">
+              <div class="card">
+                <div class="card-block">
+                  <div class="dt-responsive table-responsive">
+                    <table id="multi-colum-dt11" class="table table-striped table-bordered nowrap" cellpadding="0" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>Dispute Raised On</th>
+                          <th>QR Code</th>
+                          <th>Email Address</th>
+                          <th>Message</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for dispute in disputes %}
+                        <tr>
+                          <td>{{dispute.dispute_raised_on}}</td>
+                          <td>{{dispute.QR_code.id}}</td>
+                          <td>{{dispute.user.email}}</td>
+                          <td>{{dispute.message}}</td>
+                          {% if dispute.action == "Pending" %}
+                          <td> <a href="#" data-toggle="modal" data-target="#resolve-modal">Mark as resolve</a></td>
+                          {% else %}
+                          <td>{{dispute.action}}</td>
+                          {% endif %}
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Do you want to Logout? </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="resolve-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Are you sure that you want to resolve the request ?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- data table -->
+<script type="text/javascript">
+		$('#multi-colum-dt11').DataTable({
+
+		});
+</script>
+{% endblock %}

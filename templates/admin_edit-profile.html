@@ -1,0 +1,89 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+        <div class="pcoded-content">
+          <div class="page-header card">
+            <div class="row align-items-end">
+              <div class="col-lg-8">
+                <div class="page-header-title">
+                  <div class="d-inline">
+                       <h5>Change Password</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                   
+              </div>
+            </div>
+          </div>
+          <form method="POST" action="."> {% csrf_token %}
+          <div class="page-header card">
+               <div class="card edit-prof-section">
+               	    <div class="card-block">
+                 	     	  <div class="row">
+                 	     	  	   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                 	     	  	   	    <div class="form-group">
+                 	     	  	   	    	 <label>Old Password</label>
+                 	     	  	   	    	 <input type="text" class="form-control" name="old_pass" value="{{old_passwrd}}"> 
+                 	     	  	   	    </div>
+                 	     	  	   </div>
+                 	     	  	   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                 	     	  	   	    <div class="form-group">
+                 	     	  	   	    	 <label>New Password</label>
+                 	     	  	   	    	 <input type="text" class="form-control" name="password" value="{{password}}">
+                 	     	  	   	    </div>
+                 	     	  	   </div>
+                 	     	  </div>
+                 	     	  <div class="row">
+                 	     	  	   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                 	     	  	   	    <div class="form-group">
+                 	     	  	   	    	 <label>Confirm New Password</label>
+                 	     	  	   	    	 <input type="text" class="form-control" name="cnfm_pass" >
+                 	     	  	   	    </div>
+                 	     	  	   </div>
+                 	     	  </div>
+                 	     	  <div class="clearfix">
+                 	     	  	   <button class="btn btn-primary" type="submit">Update</button>
+                 	     	  </div>
+               	    </div>
+               </div>
+               <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+               <script>
+                if ("{{message}}" != ""){
+                  swal({
+                      'text': "{{message}}",
+                      'icon': "{{icon}}"
+                }).then(function(){
+                  if("{{url}}" != ""){
+                    window.location = "{{url}}";
+                  }
+                });
+                }
+                
+              
+              </script>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header"> </div>
+      <div class="modal-body text-center">
+        <h4>Do you want to Logout? </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No </button>
+        <button type="button" class="btn btn-primary waves-effect waves-light ">Yes </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

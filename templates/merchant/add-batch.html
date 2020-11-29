@@ -1,0 +1,97 @@
+{% extends 'merchant/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/merchant_menu.html' %}
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h5><a href="{% url 'batch' %}"><i class="icofont icofont-simple-left"></i></a>
+                            Add Batch</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="page-header card">
+        <div class="card">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="card-block">
+
+                    <div class="row">
+
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Choose Product</label>
+                                <select class="form-control" name="product_id">
+                                    <option selected="selected" disabled="disabled">Select option
+                                    </option>
+                                    {% for product_data in products %}
+                                    <option value="{{product_data.id}}">{{product_data.product_name}}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Batch Number</label>
+                                <input type="text" name="batch_number" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input type="text" name="batch_quantity" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" name="batch_start_date" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Start Time</label>
+                                <input type="time" name="batch_start_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix gen-btn">
+                        <button type="submit" class="btn btn-primary">Generate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body text-center">
+                <h4>Do you want to Logout? </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light ">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
