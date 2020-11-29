@@ -5,15 +5,10 @@ certifi==2019.11.28
 chardet==3.0.4
 colorama==0.4.3
 dataclasses==0.6
-<<<<<<< HEAD
-Django==2.2.13
-django-rest-framework==0.1.0
-=======
 sqlparse==0.2.4
 Django==2.2
 django-multiforloop==0.2.1
 django-phone-field==1.8.0
->>>>>>> origin/paras
 djangorestframework==3.11.0
 djangorestframework-simplejwt==4.4.0
 djongo==1.2.38
