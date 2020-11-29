@@ -1,0 +1,104 @@
+{% extends 'merchant/base.html' %}
+{% load static %}
+{% block content %}
+
+<nav style="margin-top: 50px;" class="navbar navbar-expand-lg bg-dark navbar-dark ">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'merchant_login' %}">Merchant</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contractor_login' %}">Contractor</a>
+    </li>
+  </ul>
+  <!-- Navbar text-->
+<span class="navbar-text ml-auto">
+    <a class="nav-link" href="{% url 'admin_login' %}">Admin</a>
+  </span>
+</nav>
+<br>
+<body themebg-pattern="theme1">
+<section class="login-block">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="md-float-material" method="POST" action="{% url 'merchant_login' %}">
+                    {% csrf_token %}
+                    <div class="text-center"><img src="{% static 'img/logo.png' %}" alt="logo.png" width="150"
+                                                  height="auto"></div>
+                    <div class="auth-box card">
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="text-center txt-primary">Sign In</h3>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Merchant Email</label>
+                                <input type="email" name="email" class="form-control" required="" placeholder="For ex. yourname@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control" required="" placeholder="Password">
+                            </div>
+                            {% for message in messages %}
+
+                            <div style="color:red;">{{message}}
+                                <div>{% endfor %}
+                                    <div class="row text-left">
+                                        <div class="col-12">
+                                            <div class="checkbox-fade fade-in-primary">
+                                                <label>
+                                                    <input type="checkbox" value="">
+                                                    <span class="cr"> <i
+                                                            class="cr-icon icofont icofont-ui-check txt-primary"> </i> </span>
+                                                    <span class="text-inverse">Remember me </span> </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-primary m-t-10 text-right">
+                                        <a href="#" data-toggle="modal" data-target="#reset-pw">Forgot Password ?</a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="submit" value="Sign In"
+                                                   class="btn btn-primary btn-md btn-block waves-effect text-center">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="reset-pw" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-20">
+            <div class="modal-header text-center">
+                <h3 class="w-100 p-b-10"><strong>Reset Password</strong></h3>
+            </div>
+            <form data-url="{% url 'send_mail' %}" id="forgot_password_form">
+                {% csrf_token %}
+                <div class="modal-body text-center" >
+                    <div class="clearfix">
+                        <label>Please Enter Email ID</label>
+                        <input type="text" name="email"  id="email_password_forget" class="form-control email_password_forget">
+                    <div class=" forget_email_error" > </div>
+                </div>
+                <div ></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary waves-effect waves-light  forgot_password_btn" data-dismiss='model'>Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+{% endblock %}

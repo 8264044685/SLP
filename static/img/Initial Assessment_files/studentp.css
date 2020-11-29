@@ -1,0 +1,886 @@
+*{
+    outline: none;
+}
+body{
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+hr {
+    border-color: #d6d6d6;
+}
+table thead th{
+    color: #63cfe3;
+}
+label{
+        margin-top: 5px;
+    margin-bottom: 10px;
+}
+a:focus,a.active,a:hover{outline: none;}
+a{color:#63cfe3;}
+a:hover{color:#000;}
+/*------------------------------------------addNewStudent.html*/
+.txt-blu{
+    color: #63cfe3;
+}
+#studentProfile.ibox-content img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+.stu-details,.pro-box {
+    
+border-radius: 10px;
+    
+padding: 11px;
+    
+margin: 15px auto;
+    
+/* box-shadow: 1px 1px 5px #000; */
+    
+background-color: #f5f5f5;
+    
+position: relative;
+    
+border: 1px solid #63cfe3;
+}
+.nav.nav-tabs li{
+    /*width: 33%*/
+    width: auto;
+}
+
+label{font-size: 16px;}
+.tab-content>.active {
+    display: block;
+     padding: 0 2rem; 
+    border-left: 1px solid #63cfe3;
+    min-height: inherit;
+}
+.browse-btn {
+    position: absolute;
+    right: -13px;
+    top: -13px;
+    /* left: 0; */
+    /* margin: 0 auto; */
+    text-align: center;
+    cursor: pointer;
+}
+.browse-btn span {
+    width: 38px;
+    height: 38px;
+    line-height: 40px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 5px;
+    background: #63cfe3;
+    padding: 10px 0 0 0;
+    cursor: pointer;
+    
+}
+.browse-btn span i{
+    cursor: pointer;
+}
+.nav-tabs {
+    /*border-bottom: 1px solid #ddd;*/
+}
+.ass #sub-tab .nav.nav-tabs{
+    width: auto;
+    margin-right: 0;
+    display: flex;
+    float: none;
+}
+.ass #sub-tab .tab-content{
+    width: 100%;
+
+}
+.ass #sub-tab ul.nav-tabs li.active a{
+    color: #fff;
+} 
+.ass #sub-tab ul.nav-tabs li.active {
+    background-color: #63cfe3;
+    border: 1px solid #63cfe3;
+    /* border-radius: 5px 0 0 5px; */
+    /* border-right: 0; */
+    /* border-left: 0px; */
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+    color: #fff;
+    border-bottom: 0;
+}
+.ass #sub-tab ul.nav-tabs li {
+    width: 100%;
+    border: 1px solid #bbbbbb;
+    padding-right: 15px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 0;
+}
+.ass #sub-tab #tab-6 label{
+    font-size: 15px;
+}
+.ass #sub-tab table .form-group{
+    margin-bottom: 0;
+}
+.ass input[type="text"]{
+    max-width: 80px;
+    margin: 0 auto;
+    text-align: center;
+}
+.ass table tr td input[type="checkbox"]{
+    width: 50px;
+    margin: 0 auto;
+}
+.coman-table table tr th{
+    padding-right: 15px;
+}
+.interview-box{
+    box-shadow: 0px 3px 10px #00000029;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+#parentInterview p{
+    font-size: 16px;
+}
+.interview-title{
+    padding: 15px;
+    background-color: #bbbbbb;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0px 3px 10px #00000029;
+    font-size: 16px;
+    font-weight: normal;
+
+}
+.interview-box p.text-black{
+    font-size: 16px;
+}
+.investor-details .tab-content p.text-black{
+    color: #000;
+}
+.radio-div{margin-right: 30px;}
+.radio-div input{
+    height: 25px;
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    margin-right: 10px;
+}
+.ass input[type="checkbox"].form-control{
+    height: 30px;
+}
+.diaBox .grpTitle h2{
+    font-size: 25px;
+    font-weight: 100;
+    color: #fff;
+    /* margin: 10px; */
+    padding: 0;
+}
+.diaBox{    
+    background-color: #63cfe3;
+    padding: 30px 0;
+    border-radius: 5px;
+    color: #fff;
+    margin: 15px 0;
+}
+.mt-4{    margin-top: 30px;}
+.grpBox{
+    width: 70px;
+    height: 70px;
+    margin: 10px auto;
+    border: 3px solid;
+    /* line-height: 64px; */
+    border-radius: 5px;
+}
+.grpBox .fa-check{
+    font-size: 40px;
+    line-height: 60px;
+}
+/*-----------------------------------studentDetail.html*/
+.main-header{
+
+}
+.curiooPath,.els,.ice,.wa,.gava,.ela{
+    padding: 15px;
+    background-color: #f5f5f5;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #b7b7b7;
+
+}
+.wa table input[type="checkbox"]{
+    width:50px;
+    margin: 0 auto;
+}
+.els h5{
+
+    font-size: 16px;
+}
+.nav.nav-tabs.studentDetail{position: relative;display: flex;flex-wrap: wrap;}
+.nav.nav-tabs.studentDetail li{
+    width: auto;/*min-width: 120px;*/
+    padding-right: 30px;
+}
+.property-dtl-tab .studentDetail li a:before {
+    height: 3px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background: #63cfe3;
+    display: none;
+}
+.stu-details div{
+    padding: 3px 5px;
+}
+.stu-details h5{
+    font-size: 15px;
+}
+.student-details .tab-content h3{
+    font-weight: 100;
+}
+
+.student-details .tab-content .btn{
+    white-space: pre-wrap;
+}
+.student-details table tr td,.student-details table thead th{min-width: 115px;padding: 15px;}
+
+/*ul.studentDetail li:nth-child(even) > a:before{
+    bottom: 0;
+}*/
+.property-dtl-tab .nav-tabs > li > a,.property-dtl-tab .nav-tabs > li.active > a, .property-dtl-tab .nav-tabs > li > a:hover, .property-dtl-tab .nav-tabs > li.active > a:hover, .property-dtl-tab .nav-tabs > li.active > a:focus{
+    font-weight: bold;/*min-height: 80px;*/
+    margin-bottom: 5px;
+}
+.m-t-25{
+    margin-top: 25px;
+}
+.tab-pane.active textarea.form-control{
+    height: auto;
+        padding: 10px 20px !important;
+}
+
+.comment-box{
+        border: 1px solid #ccc;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 3px;
+}
+.cmt-box{
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    position: relative;
+}
+.cmt-box-a{
+    display: flex;
+   
+    /*margin-bottom: 20px;*/
+    position: relative;
+}
+.cmt-box img{
+    width: 60px !important;
+}
+.cmt-box-detail{
+    margin-left: 20px;
+}
+.cmt-box-detail h3{font-weight: 600 !important;color: #63cfe3;}
+.cmt-box-detail h4{font-weight: 100;    line-height: 18px;}
+.cmt-box-detail h3 span{    float: right;
+    font-size: 12px;
+    /*color: #ffffff;
+    background-color: #63cfe3;*/
+    /*padding: 3px 10px;*/
+    letter-spacing: 1px;
+    border-radius: 3px;
+    font-weight: 100;
+   /* margin-right: 30px;*/
+}
+.cls-cmt{
+        position: absolute;
+        right: 0;
+        color: #e85c55;
+}
+@media(max-width:991px){
+    .property-dtl-tab .nav li a{
+        font-size: 14px;
+        background: #fff;
+    }
+    .property-dtl-tab .nav li a:hover{
+        background: #fff;
+        color: #63cfe3 !important;
+    }
+    /*.nav.nav-tabs.studentDetail li 
+    {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .property-dtl-tab .studentDetail li a:before
+    {
+        bottom: 0;
+    }*/
+    .property-dtl-tab 
+    {
+        padding: 15px;
+    }
+
+}
+@media screen and (max-width: 767px){
+.property-dtl-tab .nav-tabs > li.active > a, .property-dtl-tab .nav-tabs > li > a:hover, .property-dtl-tab .nav-tabs > li.active > a:hover, .property-dtl-tab .nav-tabs > li.active > a:focus {
+    color: #63cfe3;
+}
+}
+
+@media screen and (max-width: 1366px){
+    .stu-details div {
+    padding: 0px;
+}
+.stu-details, .pro-box {
+    border-radius: 10px;
+    padding: 11px;
+    margin: 15px 0px;
+    /* box-shadow: 1px 1px 5px #000; */
+    background-color: #f5f5f5;
+    position: relative;
+    border: 1px solid #63cfe3;
+}
+.stu-details h5 {
+    font-size: 13px;
+}
+}
+
+/*------------------------------------all-behavior*/
+
+#sub-tab table .DataTables_Table_0_wrapper .row:nth-child(1)
+#side-tab .active {
+    display: block;
+    padding: 2rem;
+
+}
+#sub-tab .tab-pane.active{
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 0;
+    border-radius: 5px;
+}
+.coman-modal .btn-default{
+    width: auto;
+    min-width: auto;
+    margin-top: 15px;
+}
+
+
+#sub-tab .nav.nav-tabs{
+width: 250px;
+margin-right: 0;
+}
+#sub-tab ul.nav-tabs li{
+    width: 100%;
+    border: 1px solid transparent;
+        padding-right: 15px;
+        border-right: 0;
+        border-left: 0;
+}
+#sub-tab ul.nav-tabs li a{
+    margin: 0;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 0px;
+}
+#sub-tab ul.nav-tabs li a:before{
+    content:"";
+    display: none;
+}
+#sub-tab ul.nav-tabs li.active{
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        /* border-radius: 5px 0 0 5px; */
+        border-right: 0;
+        border-left: 0px;
+}
+#sub-tab .tab-content {
+    /*margin-left: 250px;*/
+    padding-top: 0;
+    float: right;
+        width: calc(100% - 250px);
+}
+#tab-6{
+    padding:0;
+}
+#sub-tab .panel-body{
+           width: 100%;
+    margin-left: 0;
+    border: 0;
+       /*padding: 15px 0px;*/
+    background-color: transparent;
+}
+.coman-modal .form-control{
+    padding:15px;
+}
+/*#tab-6 .dataTables_wrapper .row:nth-child(1) ,#tab-7 .dataTables_wrapper .row:nth-child(1) ,#tab-8 .dataTables_wrapper .row:nth-child(1) ,#tab-9 .dataTables_wrapper .row:nth-child(1),
+#tab-6 .dataTables_wrapper .row:nth-child(1 ) ,#tab-7 .dataTables_wrapper .row:nth-child(1 ) ,#tab-8 .dataTables_wrapper .row:nth-child(1 ) ,#tab-9 .dataTables_wrapper .row:nth-child(1 ) {
+    display: flex;
+}*/
+    
+    .btn-default{
+        border-color: #63cfe3;
+    color: #63cfe3;
+    margin: 0 5px;
+    min-width: 170px;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.active {
+    border-color: #63cfe3;
+    color: #fff;
+    background: #63cfe3;
+}   
+.cmt-box-detail span{
+    padding-bottom: 10px;
+}
+
+/*---------------------------------------lc*/
+
+#learning-modal .form-control
+{
+    padding: 6px 12px 6px 12px;
+}
+.modal .input-group-addon:first-child{
+    border:1px solid #bbb;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1366px){
+    .teacher-comment .box-heading,.student-comment .box-heading{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1956px){
+    /*.lc-btn,.lc-head{
+        width: 80%;
+
+    }*/
+}
+
+
+/*-----------------------------------profile*/
+#my-account .form-control{
+border:0px;
+background: transparent;
+    font-size: 18px;
+}
+.pro-detail .row div:nth-child(odd) .form-control{
+    color: #63cfe3;
+}
+.my-ac-img img {
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    border: 0px solid #63cfe3;
+}
+/*.my-ac-img {
+    margin-bottom: 40px;
+    position: relative;
+     display: block; 
+    width: 100%;
+    border: 1px solid #63cfe3;
+    border-radius: 15px;
+    background-color: aliceblue;
+}*/
+.pro-detail{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    display: block;
+    width: 100%;
+    /*border: 1px solid #63cfe3;
+    border-radius: 15px;
+    background-color: aliceblue;*/
+}
+#modal-change-pw .form-control{
+    padding: 15px 15px 15px 50px;
+}
+
+/*----------------------------------------------------notification*/
+.notification table tr td{
+    padding: 15px;
+}
+
+/*--------------------------------------------------------principals*/
+.princi-detail,.tec-detail{
+    padding:15px 30px;
+}
+.princi-detail span,.tec-detail span{
+    word-break: break-all;
+}
+.princi-detail div,.tec-detail div,.tec-detail div{
+    padding: 5px;
+}
+.principal-detail h3{
+    font-weight: 100;
+}
+.principal-detail h2{
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 20px 0;
+}
+
+
+/*-----------------------------------------chart css*/
+.chart-title {
+    color: #63cfe3;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px;
+}
+.pie-legend-bottom{padding:0;list-style-type: none;position: absolute;width: 100%;left: 0;right: 0;margin: 0;font-size: 0;bottom: 0px;border-radius: 0;overflow: hidden;display: flex;flex-wrap: wrap;}
+.pie-legend-bottom li{    display: inline-flex;
+    width: 25%;
+    text-align: center;
+    color: #fff;
+    padding: 5px;
+    /* height: 100%; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;}
+.pie-legend-bottom h6{font-size: 24px;width: 100%;color: #fff;}
+.pie-legend-bottom p{font-size: 16px;width: 100%;}
+.pie-legend-bottom li a{display: block;
+    width: 100%;}
+.pie-chart-card{position: relative;padding-bottom: 95px;}
+.yellow{background:#F6BE57;}
+.red{background:#EB5858;}
+.blue{background:#1691B3;}
+.pink{background:#F3ACB3;}
+.score-card.border{box-shadow: none;border:1px solid #D4D4D4;margin: 0px 0 20px 0;}
+#motivation-chart,#scalechart,#columnchartdiv,#chartdiv{
+    padding: 0 15px;
+}
+.columnchartdiv1,.columnchartdiv2,.columnchartdiv3,.columnchartdiv4{
+    display: none;
+}
+.columnchartdiv1.active,.columnchartdiv2.active,.columnchartdiv3.active,.columnchartdiv4.active{
+    display: block;
+    padding: 15px;
+}
+.pink.active a,.blue.active a,.yellow.active a,.red.active a{
+    text-shadow: 1px 2px 3px #000;
+}
+#motivation-chart,#scalechart{
+    margin-bottom: 20px;
+}
+@media (min-width:1200px) and (max-width: 1500px){
+    #chart1 .col-lg-6,#chart2 .col-lg-7,#chart2 .col-lg-5 {
+        width: 100%;
+    }
+}
+
+/*-----------------------------------viewReport-tec*/
+.tReportDate{
+    display: flex;
+    justify-content: flex-end;
+}
+.tReportDate label{
+    margin: 10px;
+}
+a[title="JavaScript charts"]{
+    display: none !important;
+}
+#chartdiv1{
+        width: 80%;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+    text-align: left;
+    padding: 15px;
+    margin: 0 auto;
+}
+.pie-chart-card.teacher{
+    padding-bottom: 20px;
+}
+
+/*-------------------------------------------leaddetail*/
+.lead-detail,.editstudetail,.editleaddetail,.edittecdetail,.stdetail,.tecdetail,.teccontactdetail,.addstu,.addtec,.editcontactstu,.editcontactstu,.stucontact,.leadcontact,.editLeadContact,.addlead,.editlcdetail,.princidetail,#chart1,#chart2{
+    padding: 0 15px;
+}
+
+.checkbox-inline{
+    min-width: 140px;
+    margin-left: 0 !important;
+    width: 45%;
+}
+label {
+    font-size: 16px;
+    margin-top: 5px;
+    padding-top: 4px;
+}
+.full-width {
+    width: 100% !important;
+    max-width: 300px;
+    float: right;
+}
+
+#studio-details .tab-content>.active{
+    min-height: inherit !important;
+}
+#studio-details .dataTables_wrapper {
+    padding-bottom: 0px;
+}
+.student-comment-a.active{
+        min-height: 700px;
+}
+.add-new .btn-default{
+    min-width: auto;
+}
+ .coman-modal .form-group {
+    margin-bottom: 0px;
+}
+ .coman-modal .form-group .btn{
+    margin-top: 10px;
+ }
+ .cmt-box-a img {
+    width: 60px !important;
+}
+ .pw-form{
+    margin-bottom: 15px !important;
+ }
+ .my-ac-section .form-control {
+    padding: 6px 12px 6px 19px;
+}
+/*----------------------------------------------------------------------QA(26-feb)*/
+.dataTables-example thead tr th:nth-last-child(1).sorting:after{
+    display: none;
+   
+}
+.dataTables-example thead tr th:nth-last-child(1).sorting{
+    pointer-events: none;
+}
+.teacher-table table thead tr th:nth-child(1){
+    width: 20% !important;
+}
+.teacher-table table thead tr th:nth-child(2){
+    width: 20% !important;
+}
+.comment-box:nth-last-child(1),.comment-box .cmt-box:nth-last-child(1){
+    border: 0;
+}
+#calendar table tr td a.fc-more:hover,#calendar table tr td a.fc-more:focus,#calendar table tr td a.fc-more.active{
+        color: #676a6c;
+}
+.success-msg-icon i{
+    color:#63cfe3;
+}
+table .btn-default,.lc-btn .btn-default{
+    margin: 2px !important;
+}
+table tr td.noti-time
+{
+    width: 200px;
+    color: #1591b2;
+}
+.fc-event:nth-child(odd), .fc-event-dot:nth-child(odd){
+    background-color: #66c5d7;
+    border-color: aliceblue;
+
+}
+.fc-day-grid-event .fc-time{
+    margin-right: 5px;
+}
+a.fc-draggable{
+   /* background-color: #66c5d7;*/
+}
+#history h3 {
+    font-size: 18px;
+}
+
+.login.coman-modal .form-control{
+        padding: 6px 12px 6px 50px;
+}
+.login.coman-modal .form-group{
+    margin-bottom: 15px;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #ddd;
+  font-size:12px;
+  /* font-style: italic; */
+  letter-spacing: 1px;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ddd;
+  font-size:12px;
+  /* font-style: italic; */
+  letter-spacing: 1px;
+}
+
+::placeholder {
+  color: #ddd;
+  font-size:12px;
+  /* font-style: italic; */
+  letter-spacing: 1px;
+}
+#ann-table table.dataTable thead .sorting_asc:after,#ann-table table.dataTable thead .sorting:after{
+    display: none;
+}
+#ann-table table.dataTable tbody tr td:nth-last-child(1){
+    width: 10%;
+}
+#lesn-table table thead th:nth-last-child(1),table.dataTable thead th:nth-last-child(1){
+    width: 350px;
+}
+.behavior table.dataTable thead th:nth-last-child(1){
+    width: 200px;
+}
+.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline{
+    margin-bottom: 0;
+}
+
+/*------------------------------------------------logout*/
+
+.logout-over{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 9999;
+
+}
+/*.pop-box{
+   min-width: 300px;
+    background-color: #fff;
+    margin: 0 auto;
+    transform: translateY(50%);
+    max-height: 100vh;
+    max-width: 40%;
+    text-align: center;
+}*/
+.pop-box{
+        max-width: 550px;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 25px;
+    border-radius: 5px;
+    margin: 60px auto;
+    box-shadow: 1px 2px 4px #00000061;
+}
+.pop-title,.confirm-btn{
+    /*margin: 15px 0;*/
+}
+.pop-title p{
+    color: #000;
+}
+.confirm-btn .btn{
+    min-width: auto;
+    margin-top: 15px;
+}
+a.ibox-content{
+    display: block
+}
+a.ibox-content:hover {
+    box-shadow: 1px 2px 15px #0000003b;
+    transition: all .2s linear 0s;}
+
+/*------------------------------------------------daterangepicker*/
+.daterangepicker .btn-default{
+    min-width: auto;
+}
+.daterangepicker .btn-primary{
+    /* background-color:  */
+}
+.daterangepicker td.active, .daterangepicker td.active:hover{
+        background-color: #63cfe3;
+}
+.daterangepicker{
+        box-shadow: 1px 2px 11px #000;
+}
+#chartdiv,#AptiAss,#ParentAss{
+    pointer-events: none;
+}
+.tab-pane.active textarea.form-control {
+  
+    padding: 10px 20px !important;
+    height: auto;
+        resize: vertical;
+          overflow: auto;
+}
+.fa.fa-download {
+    color: #63cfe3;
+    font-size: 20px;
+}
+.btn:hover .fa.fa-download {
+    color: #ffffff;
+    cursor: pointer;
+}
+/* -------------------------addnewstaff */
+#subjectSelection{
+    display: none;
+}
+ul li .hide{
+ display: none;
+}
+#role_menu{
+    position: relative;
+}
+.metismenu li ul li:first-child{
+    position: relative;
+    width:100%;
+    background: none;
+    z-index: 0;
+}
+.metismenu li{
+    border-left:4px solid transparent;
+}
+.metismenu li ul {
+    padding-left:0 ;
+    background-color: #f2fdff;
+}
+.metismenu li ul li a,.metismenu li.active ul li a{
+    display: block;
+    color: #63cfe3;
+}
+#side-menu .nav-header{
+    border-left: 0;
+}
+.navbar-default .metismenu li:hover, .navbar-default .metismenu li:focus{
+    border-color:#63cfe3;
+}
+.metismenu li.active a{
+    margin-left:0;
+}
+.sub-menu li,.sub-menu li.active{
+    border-left:0;
+}
+.metismenu li.active ul li a:hover,.metismenu li.active ul li.active a{
+    color:#000;
+    border-left:0;
+}
+li.has-sub.active{
+    background: none;
+}
+.metismenu li.active.has-sub a {
+    color: #63cfe3;
+}
+.metismenu li.active.has-sub > a:hover{
+    color: #fff;
+}
+#side-menu .fa{
+    width: auto;
+}
+#my-account .my-ac-img img {
+    width: 220px;
+    height: 220px;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    border: 0px solid #63cfe3;
+}

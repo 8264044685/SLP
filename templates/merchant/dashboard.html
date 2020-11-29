@@ -1,0 +1,93 @@
+{% extends 'merchant/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/merchant_menu.html' %}
+
+<div class="pcoded-content">
+    <div class="page-header card">
+        <div class="row align-items-end">
+            <div class="col-lg-8">
+                <div class="page-header-title">
+                    <div class="d-inline">
+                        <h5>Dashboard</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="page-header card text-center">
+        <div class="row align-items-end">
+            <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-red">
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col">
+                                <h3 class="m-b-0 f-w-700 text-white">100</h3>
+                                <h6 class="m-t-5 m-b-0 text-white">Batches</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-blue">
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col">
+                                <h3 class="m-b-0 f-w-700  text-white">170 </h3>
+                                <h6 class="m-t-5 m-b-0 text-white">Total Products</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-yellow">
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col">
+                                <h3 class="m-b-0 f-w-700  text-white">500 </h3>
+                                <h6 class="m-t-5 m-b-0 text-white">QR Code Generated</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 text-center">
+                <div class="card prod-p-card card-green">
+                    <div class="card-body">
+                        <div class="row align-items-center ">
+                            <div class="col">
+                                <h3 class="m-b-0 f-w-700  text-white">100 </h3>
+                                <h6 class="m-t-5 m-b-0 text-white">QR Code Scanned</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body text-center">
+                <h4>Do you want to Logout? </h4>
+            </div>
+            <form>
+                <div class="modal-footer">
+                    <a href="javascript:void(0)" data-dismiss="modal"  class="btn btn-default waves-effect " data-dismiss="modal">No</a>
+                    <a  href="{% url 'logout' %}"  class="btn btn-primary waves-effect waves-light ">Yes</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock %}

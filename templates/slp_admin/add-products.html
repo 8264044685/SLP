@@ -1,0 +1,563 @@
+{% extends 'extra/admin_base.html' %}
+{% load static %}
+{% block content %}
+{% include 'extra/slpadmin_menu.html' %}
+<form action="{% url 'add_products' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <div class="pcoded-content">
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <div class="d-inline">
+                            <h5><a href="{% url 'products' %}"><i class="icofont icofont-simple-left"></i></a> Add
+                                Product</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+
+                </div>
+            </div>
+        </div>
+        <div class="page-header card">
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Merchant Name</label>&nbsp;<span style="color:red;">*</span>
+
+                                <select class="form-control" name="merchant_id">
+                                    <option selected="true" disabled="disabled">Choose Merchant</option>
+                                    {% for merchant in merchant_list %}
+
+                                    <option value="{{merchant.id}}">{{merchant.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Product Name</label>&nbsp;<span style="color:red;">*</span>
+                                <input type="text" value="hello" class="form-control"
+                                       name="product_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group des1-fr">
+                                <label>Product Description</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <textarea class="form-control" name="product_description">hello description</textarea>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <div class="prof-pic-part prof-pic-part-admin">
+                                    <div class="prof-pic-img">
+                                        <img src="{% static 'img/noimage.png' %}" class="show_p_add_image" alt="">
+
+                                    </div>
+                                    <div class="prof-pic-btn">
+                                        <input type="file" name="product_image" class="P_add_image">
+                                        <span><i class="icofont icofont-camera-alt"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="page-header-title p-b-15">
+                        <div class="d-inline">
+                            <h5>Product Activation Details</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Batch (e.g - abc)</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" pattern="^[A-Za-z -]+$" value="abc"
+                                       class="form-control"
+                                       name="a_side_batch"
+                                       id="a_side_batch">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>B Side Set temp</label>&nbsp;<span style="color:red;">*</span>
+                                <select class="form-control" name="b_side_set_temp" id="b_side_set_temp"
+                                >
+                                    <option value="">Choose Temp</option>
+                                    <option value="100" selected="true">100</option>
+                                    <option value="100">101</option>
+                                    <option value="102">102</option>
+                                    <option value="104">104</option>
+                                    <option value="106">106</option>
+                                    <option value="108">108</option>
+                                    <option value="110">110</option>
+                                    <option value="112">112</option>
+                                    <option value="114">114</option>
+                                    <option value="116">116</option>
+                                    <option value="118">118</option>
+                                    <option value="120">120</option>
+                                    <option value="122">122</option>
+                                    <option value="124">124</option>
+                                    <option value="126">126</option>
+                                    <option value="128">128</option>
+                                    <option value="130">130</option>
+                                    <option value="132">132</option>
+                                    <option value="134">134</option>
+                                    <option value="138">138</option>
+                                    <option value="140">140</option>
+                                    <option value="142">142</option>
+                                    <option value="144">144</option>
+                                    <option value="146">146</option>
+                                    <option value="148">148</option>
+                                    <option value="150">150</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Set temp</label>&nbsp;<span style="color:red;">*</span>
+                                <select class="form-control" name="a_side_set_temp" id="a_side_set_temp"
+                                >
+                                    <option value="">Choose Temp</option>
+                                    <option value="100" selected="true">100</option>
+                                    <option value="102">102</option>
+                                    <option value="104">104</option>
+                                    <option value="106">106</option>
+                                    <option value="108">108</option>
+                                    <option value="110">110</option>
+                                    <option value="112">112</option>
+                                    <option value="114">114</option>
+                                    <option value="116">116</option>
+                                    <option value="118">118</option>
+                                    <option value="120">120</option>
+                                    <option value="122">122</option>
+                                    <option value="124">124</option>
+                                    <option value="126">126</option>
+                                    <option value="128">128</option>
+                                    <option value="130">130</option>
+                                    <option value="132">132</option>
+                                    <option value="134">134</option>
+                                    <option value="138">138</option>
+                                    <option value="140">140</option>
+                                    <option value="142">142</option>
+                                    <option value="144">144</option>
+                                    <option value="146">146</option>
+                                    <option value="148">148</option>
+                                    <option value="150">150</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Hot Set temp</label>&nbsp;<span style="color:red;">*</span>
+                                <!-- <input type="number" class="integerField form-control temp" name="hot_set_temp" id="hot_set_temp" required=""> -->
+                                <select class="form-control" name="hot_set_temp" id="hot_set_temp"
+                                >
+                                    <option value="">Choose Temp</option>
+                                    <option value="100" selected="true">100</option>
+                                    <option value="102">102</option>
+                                    <option value="104">104</option>
+                                    <option value="106">106</option>
+                                    <option value="108">108</option>
+                                    <option value="110">110</option>
+                                    <option value="112">112</option>
+                                    <option value="114">114</option>
+                                    <option value="116">116</option>
+                                    <option value="118">118</option>
+                                    <option value="120">120</option>
+                                    <option value="122">122</option>
+                                    <option value="124">124</option>
+                                    <option value="126">126</option>
+                                    <option value="128">128</option>
+                                    <option value="130">130</option>
+                                    <option value="132">132</option>
+                                    <option value="134">134</option>
+                                    <option value="138">138</option>
+                                    <option value="140">140</option>
+                                    <option value="142">142</option>
+                                    <option value="144">144</option>
+                                    <option value="146">146</option>
+                                    <option value="148">148</option>
+                                    <option value="150">150</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Mixing Chamber Size</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <!-- <input type="number" class=" integerField form-control temp" name="mixing_chamber_size" id="mixing_chamber_size" required=""> -->
+                                <select class=" integerField form-control temp"
+                                        name="mixing_chamber_size"
+                                        id="mixing_chamber_size">
+                                    <option value="">Choose Temp</option>
+                                    <option value="0" selected="true">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Pressure Set</label>&nbsp;<span style="color:red;">*</span>
+                                <select class="form-control" name="pressure_set" id="pressure_set"
+                                >
+                                    <option value="">Choose Temp</option>
+                                    <option value="900" selected="true">900</option>
+                                    <option value="925">925</option>
+                                    <option value="950">950</option>
+                                    <option value="975">975</option>
+                                    <option value="1000">1000</option>
+                                    <option value="1025">1025</option>
+                                    <option value="1075">1075</option>
+                                    <option value="1100">1100</option>
+                                    <option value="1125">1125</option>
+                                    <option value="1150">1150</option>
+                                    <option value="1175">1175</option>
+                                    <option value="1200">1200</option>
+                                    <option value="1225">1225</option>
+                                    <option value="1250">1250</option>
+                                    <option value="1275">1275</option>
+                                    <option value="1300">1300</option>
+                                    <option value="1325">1325</option>
+                                    <option value="1350">1350</option>
+                                    <option value="1375">1375</option>
+                                    <option value="1400">1400</option>
+                                    <option value="1425">1425</option>
+                                    <option value="1450">1450</option>
+                                    <option value="1475">1475</option>
+                                    <option value="1500">1500</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Starting Drum Temperature</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <select class="form-control" name="starting_drum_temperature"
+                                        id="starting_drum_temperature">
+                                    <option value="">Choose Temp</option>
+                                    <option value="40" selected="true">40</option>
+                                    <option value="42">42</option>
+                                    <option value="44">44</option>
+                                    <option value="46">46</option>
+                                    <option value="48">48</option>
+                                    <option value="50">50</option>
+                                    <option value="52">52</option>
+                                    <option value="54">54</option>
+                                    <option value="56">56</option>
+                                    <option value="58">58</option>
+                                    <option value="60">60</option>
+                                    <option value="62">62</option>
+                                    <option value="64">64</option>
+                                    <option value="68">68</option>
+                                    <option value="70">70</option>
+                                    <option value="72">72</option>
+                                    <option value="74">74</option>
+                                    <option value="76">76</option>
+                                    <option value="78">78</option>
+                                    <option value="80">80</option>
+                                    <option value="82">82</option>
+                                    <option value="84">84</option>
+                                    <option value="86">86</option>
+                                    <option value="88">88</option>
+                                    <option value="90">90</option>
+                                    <option value="92">92</option>
+                                    <option value="94">94</option>
+                                    <option value="96">96</option>
+                                    <option value="98">98</option>
+                                    <option value="100">100</option>
+                                    <option value="102">102</option>
+                                    <option value="104">104</option>
+                                    <option value="106">106</option>
+                                    <option value="108">108</option>
+                                    <option value="110">110</option>
+                                    <option value="112">112</option>
+                                    <option value="114">114</option>
+                                    <option value="116">116</option>
+                                    <option value="118">118</option>
+                                    <option value="120">120</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header-title p-b-15">
+                <div class="d-inline">
+                    <h5>Product Guidelines</h5>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-block">
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Technical Datasheet (Supported File Type: pdf)</h2>
+                            <br>
+                            <div class="custom-file">
+                                <input type="hidden" value="0" id="technical_uploaded_file_count"
+                                       name="technical_uploaded_file_count">
+                                <input name="technical_datasheet_0" id="technical_file_0" type="file"
+                                       class="custom-file-input js_technical_file  technical_file_0"
+                                       accept=".pdf" onchange="addTechnicalPdfFile(this)"/>
+                                <label class="custom-file-label">Upload file</label>
+                            </div>
+                        </div>
+
+                        <ul id="js_uploaded_pdf">
+                            <!--                                            <li>-->
+                            <!--                                                <div class="box">-->
+                            <!--                                                    <a href="#" class="remove1"><i-->
+                            <!--                                                            class="icofont icofont-close"></i></a>-->
+                            <!--                                                    <div class="icon">-->
+                            <!--                                                        <i class="icofont icofont-file-pdf"></i>-->
+                            <!--                                                    </div>-->
+                            <!--                                                </div>-->
+                            <!--                                            </li>-->
+                        </ul>
+                    </div>
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Application Guideline (Supported File Type: pdf)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="guidelines_uploaded_file_count"
+                                   id="guidelines_uploaded_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="application_guidelines_0"
+                                       id="guidelines_file_0"
+                                       class="custom-file-input js_guideline_file guidelines_file_0"
+                                       onchange="addGuidelinesPdfFile(this)" accept=".pdf">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+
+                        <ul id="guide_file_pdf_show">
+
+                        </ul>
+
+                    </div>
+                    <div class="prod-guidelines-list video-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Video (Supported File Type: mp4)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="video_uploaded_file_count"
+                                   id="video_uploaded_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="videofile_0" id="video_file_0"
+                                       class="custom-file-input js_video_file video_file_0"
+                                       onchange="addVideoFile(this)" accept="video/*">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="video_file_show">
+
+                        </ul>
+
+                    </div>
+
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Safety Datasheet (Supported File Type: pdf)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="safety_datasheet_uploaded_file_count"
+                                   id="safety_datasheet_uploaded_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="safety_datasheet_file_0"
+                                       id="safety_datasheet_file_0"
+                                       class="custom-file-input js_safety_datasheet_file safety_datasheet_file_0"
+                                       onchange="addSafetyDatasheetFile(this)" accept=".pdf">
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="safetydatasheet_file_pdf_show">
+
+                        </ul>
+                    </div>
+                    <!-- <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Certificate (Supported File Type: pdf, png, jpg, jpeg)</h2>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" name="certificate" class="custom-file-input"
+                                       accept=".pdf,image/*" multiple/>
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="prod-guidelines-list clearfix">
+                        <div class="clearfix">
+                            <h2>Certificate (Supported File Type: pdf, png, jpg, jpeg)</h2>
+                            <br>
+                            <input type="hidden" value="0" name="certificate_file_count"
+                                   id="certificate_file_count">
+                            <div class="custom-file">
+                                <input type="file" name="certificate_file_0" id="certificate_file_0"
+                                       class="custom-file-input js_certificate_file certificate_file_0"
+                                       onchange="addcertificateFile(this)" >
+                                <label class="custom-file-label" for="customFile">Upload
+                                    file</label>
+                            </div>
+                        </div>
+                        <ul id="certificate_file_show">
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header-title p-b-15">
+                <div class="d-inline">
+                    <h5>Product Rewards</h5>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-block v-product-top">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>QR Code Scan</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value=12345 name="qr_code_scan_reward"
+                                       id="qr_code_scan_reward"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Batch</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input value="200" type="text" name="a_side_batch_reward"
+                                       id="a_side_batch_reward"
+                                       class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>A Side Set Temp</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="200" name="a_side_set_temp_reward"
+                                       id="a_side_set_temp_reward" class="form-control point">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>B Side Set Temp</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="200" name="b_side_set_temp_reward"
+                                       id="b_side_set_temp_reward" class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Hot Set Temp</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="200" name="hot_set_temp_reward"
+                                       id="hot_set_temp_reward"
+                                       class="form-control point">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Pressure Set</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="200" name="pressure_set_reward"
+                                       id="pressure_set_reward"
+                                       class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Mixing Chamber Size</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="200" name="mixing_chamber_size_reward"
+                                       id="mixing_chamber_size_reward" class="form-control point">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Photo of Installed foam</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input type="text" value="200" name="photo_of_install_foam_reward"
+                                       id="photo_of_install_foam_reward" class="form-control point">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-12">
+                            <div class="form-group">
+                                <label>Starting Drum Temperature Point</label>&nbsp;<span
+                                    style="color:red;">*</span>
+                                <input value="200" type="number"
+                                       name="starting_drum_temperature_point_reward"
+                                       id="starting_drum_temperature_point_reward"
+                                       class=" integerField form-control point"
+                                       id="starting_drum_temperature_point"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label"><strong>Total Points :
+                                </strong><strong id="total_points"></strong></label>
+                                <input type="hidden" value="500" id="total_points1" name="total_points">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+<div class="modal fade" id="Logout" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header"></div>
+            <div class="modal-body text-center">
+                <h4>Do you want to Logout? </h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light ">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
