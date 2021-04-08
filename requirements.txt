@@ -6,7 +6,7 @@ chardet==3.0.4
 colorama==0.4.3
 dataclasses==0.6
 sqlparse==0.2.4
-Django==2.2
+Django==2.2.20
 django-multiforloop==0.2.1
 django-phone-field==1.8.0
 djangorestframework==3.11.0
